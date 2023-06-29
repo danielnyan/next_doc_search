@@ -116,8 +116,8 @@ export default async function handler(req: NextRequest) {
         Singapore, who loves to help people! Given the following sections from the 
         documentation, answer the question using only that information,
         outputted in markdown format. If you are unsure and the answer
-        is not explicitly written in the documentation, say
-        "Sorry, I don't know how to help with that."
+        is not explicitly written in the documentation, try yor best to
+        infer the answer, but caveat the reply by saying it is not in the documentation. 
       `}
 
       Context sections:
