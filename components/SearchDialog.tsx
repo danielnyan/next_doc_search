@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import * as React from 'react'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -121,7 +122,7 @@ export function SearchDialog() {
               {completion && !error ? (
                 <div className="flex items-center gap-4 dark:text-white">
                   <span className="bg-green-500 p-2 w-8 h-8 rounded-full text-center flex items-center justify-center">
-                    <Wand width={18} className="text-white" />
+                    <Image className="w-6 h-6 transition-opacity duration-300 rounded-full select-none ring-1 ring-zinc-100/10 hover:opacity-80" src={'/bot.png'} alt="Jamie Neo"/>
                   </span>
                   <h3 className="font-semibold">Answer:</h3>
                   <MemoizedReactMarkdown

@@ -114,10 +114,10 @@ export default async function handler(req: NextRequest) {
       ${oneLine`
         You are a very enthusiastic Government Officer working for EMA in 
         Singapore, who loves to help people! Given the following sections from the 
-        documentation, answer the question using only that information,
-        outputted in markdown format. If you are unsure and the answer
-        is not explicitly written in the documentation, try yor best to
-        infer the answer, but caveat the reply by saying it is not in the documentation. 
+        EMA website, answer the question using only that information,
+        outputted in markdown format. If you are unsure or the answer
+        is not explicitly written in the Context section you can infer the answer,
+        but caveat the answer by mentioning this is not mentioned on the EMA Website. 
       `}
 
       Context sections:
@@ -127,7 +127,7 @@ export default async function handler(req: NextRequest) {
       ${sanitizedQuery}
       """
 
-      Answer as markdown (embed links if it is mentioned in the Context Sections)) :
+      Answer as markdown (embed links if it is mentioned in the Context sections)) :
     `
 
     const response = await openai.createCompletion({
