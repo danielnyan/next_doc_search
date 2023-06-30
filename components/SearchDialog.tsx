@@ -182,9 +182,9 @@ export function SearchDialog() {
                   hover:bg-slate-100 dark:hover:bg-gray-600
                   rounded border border-slate-200 dark:border-slate-600
                   transition-colors"
-                  onClick={(_) => setQuery('Who is the CEO of EMA?')}
+                  onClick={(_) => setQuery('Can I sell solar energy back to the grid?')}
                 >
-                  Who is the CEO of EMA?
+                  Can I sell solar energy back to the grid?
                 </button>
                 <button
                   type="button"
@@ -193,9 +193,20 @@ export function SearchDialog() {
                   hover:bg-slate-100 dark:hover:bg-gray-600
                   rounded border border-slate-200 dark:border-slate-600
                   transition-colors"
-                  onClick={(_) => setQuery('Does Singapore have a Minister in charge of Energy?')}
+                  onClick={(_) => setQuery('What is EMA doing to proliferate the use of Solar PV in Singapore?')}
                 >
-                  Does Singapore have a Minister in charge of Energy?
+                  What is EMA doing to proliferate the use of Solar PV in Singapore?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('What are the approvals I have to obtain to install a Solar PV unit in my home?')}
+                >
+                  What are the approvals I have to obtain to install a Solar PV unit in my home?
                 </button>
                 <button
                   type="button"
@@ -207,6 +218,17 @@ export function SearchDialog() {
                   onClick={(_) => setQuery('What is the parent ministry of EMA?')}
                 >
                   What is the parent ministry of EMA?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('Who is the CEO of EMA?')}
+                >
+                  Who is the CEO of EMA?
                 </button>
               </div>
             </div>
