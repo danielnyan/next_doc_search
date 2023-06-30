@@ -127,7 +127,7 @@ export default async function handler(req: NextRequest) {
       ${sanitizedQuery}
       """
 
-      Answer as markdown:
+      Answer as markdown (embed links if it is mentioned in the Context Sections)) :
     `
 
     const response = await openai.createCompletion({
