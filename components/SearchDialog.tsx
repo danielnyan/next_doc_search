@@ -121,9 +121,7 @@ export function SearchDialog() {
 
               {completion && !error ? (
                 <div className="flex items-center gap-4 dark:text-white">
-                  <span className="bg-green-500 p-2 w-8 h-8 rounded-full text-center flex items-center justify-center">
-                    <Image width="25" height="25" src={'/bot.png'} alt="Jamie Neo"/>
-                  </span>
+                  <Image width="25" height="25" src={'/bot.png'} alt="Jamie Neo"/>
                   <h3 className="font-semibold">Answer:</h3>
                   <MemoizedReactMarkdown
                     className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
