@@ -97,6 +97,14 @@ a {
   margin-bottom: 2rem;
 }
 
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
