@@ -28,20 +28,10 @@ export default function Home() {
           <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
             <Link href="https://www.tech.gov.sg/capability-centre-dsaid/" className="flex items-center justify-center">
               <p className="text-base mr-2">© 2023 Data Science and Artificial Intelligence Division, GovTech</p>
-              <Image src={'/dsaid.svg'} width="30" height="20" alt="DSAID logo" />
+              <Image src={'/dsaid.svg'} width="60" height="26" alt="DSAID logo" />
             </Link>
           </div>
           <div className="border-l border-gray-300 w-1 h-4" />
-          <div className="flex items-center justify-center space-x-4">
-            <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
-              <Link
-                href="https://github.com/wonkishtofu/next_doc_search"
-                className="flex items-center justify-center"
-              >
-                <Image src={'/github.svg'} width="20" height="20" alt="Github logo" />
-              </Link>
-            </div>
-          </div>
         </div>
       </main>
     </>
