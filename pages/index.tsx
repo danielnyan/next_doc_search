@@ -31,7 +31,6 @@ export default function Home() {
               <Image src={'/dsaid.svg'} width="60" height="26" alt="DSAID logo" />
             </Link>
           </div>
-          <div className="border-l border-gray-300 w-1 h-4" />
         </div>
       </main>
     </>
