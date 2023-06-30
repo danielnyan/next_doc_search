@@ -160,9 +160,53 @@ export function SearchDialog() {
                   hover:bg-slate-100 dark:hover:bg-gray-600
                   rounded border border-slate-200 dark:border-slate-600
                   transition-colors"
-                  onClick={(_) => setQuery('What are embeddings?')}
+                  onClick={(_) => setQuery('What is the proportion of natural gas in our energy mix?')}
                 >
-                  What are embeddings?
+                  What is the proportion of natural gas in our energy mix?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('What are Singapore\'s Solar Energy targets by 2030?')}
+                >
+                  What are Singapore's Solar Energy targets by 2030?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('Who is the CEO of EMA?')}
+                >
+                  Who is the CEO of EMA?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('Does Singapore have a Minister in charge of Energy?')}
+                >
+                  Does Singapore have a Minister in charge of Energy?
+                </button>
+                <button
+                  type="button"
+                  className="px-1.5 py-0.5
+                  bg-slate-50 dark:bg-gray-500
+                  hover:bg-slate-100 dark:hover:bg-gray-600
+                  rounded border border-slate-200 dark:border-slate-600
+                  transition-colors"
+                  onClick={(_) => setQuery('What is the parent ministry of EMA?')}
+                >
+                  What is the parent ministry of EMA?
                 </button>
               </div>
             </div>
