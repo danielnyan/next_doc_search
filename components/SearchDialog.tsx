@@ -79,7 +79,7 @@ export function SearchDialog() {
         </kbd>{' '}
       </button>
       <Dialog open={open}>
-        <DialogContent className="sm:max-w-[850px] text-black overflow-scroll">
+        <DialogContent className="sm:max-w-[850px] text-black overflow-scroll max-h-screen">
           <DialogHeader>
             <DialogTitle>Ask Jamie Neo:</DialogTitle>
             <DialogDescription>
@@ -120,7 +120,7 @@ export function SearchDialog() {
               )}
 
               {completion && !error ? (
-                <div className="flex items-center gap-4 dark:text-white">
+                <div className="flex items-center gap-4 dark:text-white overflow-auto whitespace-wrap max-h-screen" >
                   <Image width="25" height="25" src={'/bot.png'} alt="Jamie Neo"/>
                   <h3 className="font-semibold">Answer:</h3>
                   <MemoizedReactMarkdown
