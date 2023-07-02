@@ -215,7 +215,7 @@
   .description div {
     display: flex;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     width: 100%;
   }
 
