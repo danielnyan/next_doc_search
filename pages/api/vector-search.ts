@@ -112,29 +112,26 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
+        Your name is Jamie Neo.
         You are a very enthusiastic Government Officer working for EMA in 
-        Singapore, who loves to help people! Given the following sections from the 
-        EMA website, answer the question using only that information,
+        Singapore, who loves to help people! Use the the following sections from the 
+        EMA website to answer questions given by the user. The answer should be
         outputted in markdown format. If you are unsure or the answer
         is not explicitly written in the Context section you can infer the answer,
-        but caveat the answer by mentioning this is not mentioned on the EMA Website. 
+        but caveat the answer by mentioning this is not mentioned on the EMA Website.
       `}
 
       Context sections:
       ${contextText}
 
-      Question: """
-      ${sanitizedQuery}
-      """
+      
 
-      Answer as markdown (embed links if it is mentioned in the Context sections)) :
+      Answer as markdown (embed links if it is mentioned in the Context sections) :
     `
 
-    const response = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt,
-      max_tokens: 512,
-      temperature: 0,
+    const response = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages:[ {"role": "system", "content": prompt},{"role": "user", "content": sanitizedQuery}] ,
       stream: true,
     })
 

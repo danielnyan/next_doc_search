@@ -62,7 +62,7 @@ export function SearchDialog() {
         transition-colors
         rounded-md
         border border-slate-200 dark:border-slate-500 hover:border-slate-300 dark:hover:border-slate-500
-        min-w-[300px] "
+        min-w-[300px] overflow-auto "
       >
         <Search width={15} />
         <span className="border border-l h-5"></span>
@@ -79,11 +79,11 @@ export function SearchDialog() {
         </kbd>{' '}
       </button>
       <Dialog open={open}>
-        <DialogContent className="sm:max-w-[850px] text-black">
+        <DialogContent className="sm:max-w-[850px] text-black overflow-scroll">
           <DialogHeader>
-            <DialogTitle>OpenAI powered EMA doc search</DialogTitle>
+            <DialogTitle>Ask Jamie Neo:</DialogTitle>
             <DialogDescription>
-              A ChatGPT-style search built with Next.js, OpenAI, Supabase & a whole lotta coffee ☕.
+              EMA's Document-grounded Generative Search built on whole lotta coffee ☕.
             </DialogDescription>
             <hr />
             <button className="absolute top-0 right-2 p-2" onClick={() => setOpen(false)}>
