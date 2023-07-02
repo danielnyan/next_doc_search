@@ -79,7 +79,7 @@ export function SearchDialog() {
         </kbd>{' '}
       </button>
       <Dialog open={open}>
-        <DialogContent className="sm:max-w-[850px] text-black overflow-scroll max-h-screen">
+        <DialogContent className="sm:max-w-[850px] text-black overflow-scroll max-h-screen overscroll-none">
           <DialogHeader>
             <DialogTitle>Ask Jamie Neo:</DialogTitle>
             <DialogDescription>
@@ -120,8 +120,8 @@ export function SearchDialog() {
               )}
 
               {completion && !error ? (
-                <div className="flex items-center gap-4 dark:text-white overflow-auto whitespace-wrap max-h-screen" >
-                  <Image width="25" height="25" src={'/bot.png'} alt="Jamie Neo"/>
+                <div className="flex items-center gap-4 dark:text-white whitespace-wrap" >
+                  <Image width="25" height="25" src={'/bot.png'} alt="Jamie Neo" />
                   <h3 className="font-semibold">Answer:</h3>
                   <MemoizedReactMarkdown
                     className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
@@ -150,6 +150,11 @@ export function SearchDialog() {
                     }`}
                 />
               </div>
+              <DialogFooter>
+                <Button type="submit" className="bg-red-500">
+                  Ask
+                </Button>
+              </DialogFooter>
               <div className="text-xs text-gray-500 dark:text-gray-100">
                 Or try:{' '}
                 <button
@@ -231,11 +236,7 @@ export function SearchDialog() {
                 </button>
               </div>
             </div>
-            <DialogFooter>
-              <Button type="submit" className="bg-red-500">
-                Ask
-              </Button>
-            </DialogFooter>
+
           </form>
         </DialogContent>
       </Dialog>
