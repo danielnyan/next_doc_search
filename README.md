@@ -10,7 +10,7 @@ This project was conceived as part of an annual Hackathon at DSAID, GovTech (Sin
 The Energy Market Authority of Singapore (EMA) faced a perennial problem which plagues public officers Government-wide: 
 
 - Members of the public are often unable to find information publicly available on Government Websites. 
-- They email public officers with their enquiries; and our public officers are flooded with common enquiries already addressed on their Government FAQs 
+- The email public officers with their enquiries; and our public officers are flooded with common enquiries already addressed on their publicly available FAQs 
 
 Often, the answer to most public enquiries are scattered across our websites; and they require cross-referencing between various sources to arrive at a coherent answer. While traditional search systems may point users to information sources, more is needed to synthesise search output to get users the answers they seek. 
 
