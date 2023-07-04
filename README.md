@@ -132,9 +132,9 @@ Deploy this starter to Vercel. The Supabase integration will automatically set t
 
 ## Credits 
 
-We based our solution off the fantastic work done by Greg you can follow his work on Twitter at [@ggrdson](https://twitter.com/ggrdson). 
+We based our solution off the fantastic work done by Greg over at [Rabbit Hole Syndrome YouTube Channel](https://www.youtube.com/@RabbitHoleSyndrome). You can follow his work on Twitter at [@ggrdson](https://twitter.com/ggrdson). 
 
 - This prototype was built using Vercel's very robust [Next.js OpenAI Doc Search Template](https://vercel.com/templates/next.js/nextjs-openai-doc-search-starter)
 - Read the blogpost on how he built [ChatGPT for the Supabase Docs](https://supabase.com/blog/chatgpt-supabase-docs).
 - [[Docs] pgvector: Embeddings and vector similarity](https://supabase.com/docs/guides/database/extensions/pgvector)
-- Watch [Greg's](https://twitter.com/ggrdson) "How I built this" [video](https://youtu.be/Yhtjd7yGGGA) on the [Rabbit Hole Syndrome YouTube Channel](https://www.youtube.com/@RabbitHoleSyndrome)
+- Watch [Greg's](https://twitter.com/ggrdson) "How I built this" [video](https://youtu.be/Yhtjd7yGGGA) on the [Rabbit Hole Syndrome YouTube Channel](https://www.youtube.com/@RabbitHoleSyndrome).
