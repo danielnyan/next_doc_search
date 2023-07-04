@@ -7,7 +7,7 @@ Try the demo here:
 
 This project was conceived as part of an annual Hackathon at DSAID, GovTech (Singapore) in 2023.
 
-The Energy Market Authority of Singapore (EMA) faced perennial problem which plagues public officers Government-wide: 
+The Energy Market Authority of Singapore (EMA) faced a perennial problem which plagues public officers Government-wide: 
 
 - Members of the public are often unable to find information publicly available on Government Websites. 
 - They email public officers with their enquiries; and our public officers are flooded with common enquiries already addressed on their Government FAQs 
