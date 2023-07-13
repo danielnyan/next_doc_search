@@ -145,3 +145,4 @@ We based our solution off the fantastic work done by Greg over at [Rabbit Hole S
 - Read the blogpost on how he built [ChatGPT for the Supabase Docs](https://supabase.com/blog/chatgpt-supabase-docs).
 - [[Docs] pgvector: Embeddings and vector similarity](https://supabase.com/docs/guides/database/extensions/pgvector)
 - Watch [Greg's](https://twitter.com/ggrdson) "How I built this" [video](https://youtu.be/Yhtjd7yGGGA) on the [Rabbit Hole Syndrome YouTube Channel](https://www.youtube.com/@RabbitHoleSyndrome).
+ .
