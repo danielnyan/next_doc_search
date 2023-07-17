@@ -92,7 +92,7 @@ export function SearchDialog() {
                   <p className="mt-2">
                     <ul>
                       <li>
-                        By using the servvice, you acknowledge you recognise the possibility of AI
+                        By using the service, you acknowledge you recognise the possibility of AI
                         generating inaccurate or wrong responses and{' '}
                         <b>you take full responsibility over how you use the generated output</b>.
                       </li>
