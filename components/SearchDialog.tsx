@@ -83,7 +83,7 @@ export function SearchDialog() {
           <DialogHeader>
             <DialogTitle>Ask EMA Officer - Jamie Neo:</DialogTitle>
             <DialogDescription>
-              This RAG Project was built for EMA as part of a Hackathon organised by GovTech - DSAID (2023). <br/>Project Repository - <a href='https://github.com/wonkishtofu/next_doc_search'> Link 🔗</a>.
+              This Document Grounded Generative Search prototype was built for EMA as part of a Hackathon organised by GovTech - DSAID (2023). <br/>Project Repository - <a href='https://github.com/wonkishtofu/next_doc_search'> Link 🔗</a>.
               <div className="flex items-center gap-4">
                 <span className="bg-yellow-100 p-2 w-8 h-8 rounded-full text-center flex items-center justify-center">
                   <AlertTriangle width={18} />
