@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Team Illuminati - EMA Search</title>
+        <title>Ask Jamie Neo - EMA Document-Grounded Generation & Search</title>
         <meta
           name="description"
           content="This RAG Search runs on Next.js, Supabase, GPT-3, and a lotta coffee ☕."
