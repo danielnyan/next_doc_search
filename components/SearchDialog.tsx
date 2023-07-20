@@ -49,8 +49,14 @@ export function SearchDialog() {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    console.log(query)
-    complete(query)
+    let comp = complete(query)
+    let log_thing = ''
+    comp.then((res) => {
+      let logging = JSON.stringify(
+        'query: ' + query + ' response: ' + res + ' time: ' + new Date().toLocaleString()
+      )
+      console.log(logging)
+    })
   }
 
   return (
@@ -81,9 +87,15 @@ export function SearchDialog() {
       <Dialog open={open}>
         <DialogContent className="sm:max-w-[850px] text-black overflow-scroll max-h-screen overscroll-none">
           <DialogHeader>
-            <DialogTitle>Ask EMA Officer - Jamie Neo:</DialogTitle>
+            <DialogTitle>Ask EMA Officer - Jamie Sun</DialogTitle>
             <DialogDescription>
-              This Document Grounded Generative Search prototype was built for EMA as part of a Hackathon organised by GovTech - DSAID (2023). <br/>Project Repository - <a href='https://github.com/wonkishtofu/next_doc_search'> Link 🔗</a>.
+              This Document Grounded Generative Search prototype was built for EMA as part of a
+              Hackathon organised by GovTech - DSAID (2023). Our prototype is a proof-of-concept
+              (POC) designed to provide accessible information about solar energy to the public. To
+              learn more, please contact the H2SUN department at EMA.
+              <br />
+              Project Repository -{' '}
+              <a href="https://github.com/wonkishtofu/next_doc_search"> Link 🔗</a>.
               <div className="flex items-center gap-4">
                 <span className="bg-yellow-100 p-2 w-8 h-8 rounded-full text-center flex items-center justify-center">
                   <AlertTriangle width={18} />

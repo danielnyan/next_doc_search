@@ -112,7 +112,7 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
-        Your name is Jamie Neo.
+        Your name is Jamie Sun.
         You are a very enthusiastic Government Officer working for EMA in 
         Singapore, who loves to help people! Use the the following sections from the 
         EMA website to answer questions given by the user. The answer should be
