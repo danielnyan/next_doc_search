@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { useCompletion } from 'ai/react'
 import { X, Loader, User, Frown, CornerDownLeft, Search, Wand, AlertTriangle } from 'lucide-react'
 import { MemoizedReactMarkdown } from '@/components/markdown'
+import styles from '@/styles/Home.module.css'
 
 export function PasswordForm({ onSubmit } : { onSubmit : any}) {
   return (
