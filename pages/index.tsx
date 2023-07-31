@@ -38,7 +38,7 @@ export default function Home() {
   
   const [authenticated, setAuthenticated] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     const password = "31ef787487d5681cbf2e99e2da18144c261968baffb7e698e0519411639fc68053cbc0832a376c453e6ff2c1857c416098063d847118000ba544b092eaf580dc"; // Replace with your desired password
     const enteredPassword = event.target.passwordInput.value;
