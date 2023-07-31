@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { SearchDialog } from '@/components/SearchDialog'
+import { SearchDialog, PasswordForm } from '@/components/SearchDialog'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
@@ -28,17 +28,7 @@ export default function Home() {
   );
 
   const PasswordForm = ({ onSubmit } : { onSubmit : any}) => (
-    <main className={styles.main}>
-      <div className={styles.center}>
-        <div id="passwordForm">
-          <h2>Enter the Password to Access the Website:</h2>
-          <form onSubmit={onSubmit}>
-            <input type="password" name="passwordInput" />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
-    </main>
+    
   );
   
   const [authenticated, setAuthenticated] = useState(false);
