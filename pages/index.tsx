@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import { SearchDialog } from '@/components/SearchDialog'
 import Image from 'next/image'
 import Link from 'next/link'
+import {useState} from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
