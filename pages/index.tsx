@@ -35,6 +35,21 @@ export default function Home() {
     </div>
   );
   
+  const [authenticated, setAuthenticated] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const password = "31ef787487d5681cbf2e99e2da18144c261968baffb7e698e0519411639fc68053cbc0832a376c453e6ff2c1857c416098063d847118000ba544b092eaf580dc"; // Replace with your desired password
+    const enteredPassword = event.target.passwordInput.value;
+    const sha512Password = sha512(enteredPassword);
+
+    if (sha512Password === password) {
+      setAuthenticated(true);
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
+  };
+  
   return (
     <>
       <Head>
