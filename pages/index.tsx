@@ -5,6 +5,7 @@ import { SearchDialog } from '@/components/SearchDialog'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
+import {sha512} from 'js-sha512'
 
 const inter = Inter({ subsets: ['latin'] })
 
