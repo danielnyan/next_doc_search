@@ -28,13 +28,17 @@ export default function Home() {
   );
 
   const PasswordForm = ({ onSubmit } : { onSubmit : any}) => (
-    <div id="passwordForm">
-      <h2>Enter the Password to Access the Website:</h2>
-      <form onSubmit={onSubmit}>
-        <input type="password" name="passwordInput" />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <main className={styles.main}>
+      <div className={styles.center}>
+        <div id="passwordForm">
+          <h2>Enter the Password to Access the Website:</h2>
+          <form onSubmit={onSubmit}>
+            <input type="password" name="passwordInput" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </main>
   );
   
   const [authenticated, setAuthenticated] = useState(false);
