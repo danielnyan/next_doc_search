@@ -25,7 +25,7 @@ export default function Home() {
     </main>
   );
 
-  const PasswordForm = ({ onSubmit }) => (
+  const PasswordForm = ({ onSubmit } : { onSubmit : any}) => (
     <div id="passwordForm">
       <h2>Enter the Password to Access the Website:</h2>
       <form onSubmit={onSubmit}>
