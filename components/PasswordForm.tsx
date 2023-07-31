@@ -21,7 +21,7 @@ export function PasswordForm({ onSubmit } : { onSubmit : any}) {
   return (
     <main className={styles.main}>
       <div className={styles.center}>
-        <Dialog>
+        <Dialog open=true>
           <DialogContent className="sm:max-w-[850px] text-black overflow-scroll max-h-screen overscroll-none">
             <DialogHeader>
               <DialogTitle>Please enter the password to Jamie Sun</DialogTitle>
