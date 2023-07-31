@@ -27,10 +27,6 @@ export default function Home() {
       </div>
     </main>
   );
-
-  const PasswordForm = ({ onSubmit } : { onSubmit : any}) => (
-    
-  );
   
   const [authenticated, setAuthenticated] = useState(false);
 
