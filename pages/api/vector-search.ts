@@ -48,6 +48,7 @@ export default async function handler(req: NextRequest) {
       throw new UserError('Missing query in request data')
     }
 
+    let timestamp = new Date().valueOf()
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey)
 
     // Moderate the content to comply with OpenAI T&C
@@ -59,6 +60,11 @@ export default async function handler(req: NextRequest) {
     const [results] = moderationResponse.results
 
     if (results.flagged) {
+      await supabaseClient.from("queries").insert({
+        timestamp: timestamp, 
+        query: query, 
+        error:`Flagged content: ${JSON.stringify(results.categories)}`
+      })
       throw new UserError('Flagged content', {
         flagged: true,
         categories: results.categories,
@@ -72,6 +78,8 @@ export default async function handler(req: NextRequest) {
     })
 
     if (embeddingResponse.status !== 200) {
+      await supabaseClient.from("queries").insert({timestamp: timestamp, query: query, 
+                                                   error:`Failed to create embedding: ${JSON.stringify(embeddingResponse)}`})
       throw new ApplicationError('Failed to create embedding for question', embeddingResponse)
     }
 
@@ -90,6 +98,7 @@ export default async function handler(req: NextRequest) {
     )
 
     if (matchError) {
+      await supabaseClient.from("queries").insert({timestamp: timestamp, query: query, error:`Match error: ${JSON.stringify(matchError)}`})
       throw new ApplicationError('Failed to match page sections', matchError)
     }
 
