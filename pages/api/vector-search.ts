@@ -129,22 +129,27 @@ export default async function handler(req: NextRequest) {
       Answer as markdown (embed links if it is mentioned in the Context sections) :
     `
 
-    const response = await openai.createChatCompletion({
+    const response_test = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
-      messages:[ {"role": "system", "content": prompt},{"role": "user", "content": sanitizedQuery}] ,
-      stream: true,
+      messages:[ {"role": "system", "content": prompt},{"role": "user", "content": sanitizedQuery}]
+    })
+    const data_test = await response_test.json()
+
+    const output_message = data_test.choices[0]["message"]["content"]
+    await supabaseClient.from("queries").insert({
+      timestamp: timestamp, 
+      query: query, 
+      response:output_message,
+      context: contextText
     })
 
-    if (!response.ok) {
-      const error = await response.json()
-      throw new ApplicationError('Failed to generate completion', error)
-    }
-
-    // Transform the response into a readable stream
-    const stream = OpenAIStream(response)
-
-    // Return a StreamingTextResponse, which can be consumed by the client
-    return new StreamingTextResponse(stream)
+    return new Response(
+      output_message,
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
   } catch (err: unknown) {
     if (err instanceof UserError) {
       return new Response(
