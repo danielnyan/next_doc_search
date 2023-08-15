@@ -157,7 +157,7 @@ export default async function handler(req: NextRequest) {
       model: 'gpt-3.5-turbo',
       messages:[ {"role": "system", "content": "Answer this question in markdown"},{"role": "user", "content": sanitizedQuery}]
     })
-    const control_data = await control_response_test.json()
+    const control_data_test = await control_response_test.json()
     const control_output_message = control_data_test.choices[0]["message"]["content"]
     
     const response_test = await openai.createChatCompletion({
