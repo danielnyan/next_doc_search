@@ -105,7 +105,7 @@ export default async function handler(req: NextRequest) {
     const tokenizer = new GPT3Tokenizer({ type: 'gpt3' })
     let tokenCount = 0
     let contextText = ''
-    let referenceText = 'References:\n'
+    let referenceText = 'References:  \n'
 
     for (let i = 0; i < pageSections.length; i++) {
       const pageSection = pageSections[i]
@@ -118,7 +118,11 @@ export default async function handler(req: NextRequest) {
       }
 
       contextText += `${content.trim()}\n---\n`
-      referenceText += `${pageSection.heading.trim()}\n`
+
+      // Shows only top three matches
+      if (i < 3) {
+        referenceText += `${pageSection.heading.trim()}  \n`
+      }
     }
 
     const prompt = codeBlock`
