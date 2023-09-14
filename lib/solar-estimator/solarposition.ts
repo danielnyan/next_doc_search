@@ -72,7 +72,7 @@ Today's Projected Solar Exposure:
 
 Computing the optimal tilt of the solar panel ...
 `);
-  } catch (error) {
+  } catch (error : any) {
     console.error(error.message);
   }
 }
@@ -95,7 +95,7 @@ export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: 
         const sunPosition = response.data.result.sun_info.sun_position;
         azimuthAngles.push((sunPosition.azimuth * 180 / Math.PI) + 180);
         altitudeAngles.push((sunPosition.altitude * 180 / Math.PI));
-      } catch (error) {
+      } catch (error : any) {
         console.error(error.message);
       }
     }
