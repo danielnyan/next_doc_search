@@ -70,8 +70,9 @@ export function getHoursElapsed(DT: string): number {
   let daysElapsed = 0;
   for (let mm = 1; mm <= dateTime.month; mm++) {
     const dateTime2 = DateTime.fromObject({ year: dateTime.year, month: mm }).daysInMonth;
-    assertDefined(dateTime2);
-    daysElapsed += dateTime2;
+    if (dateTime2 !== undefined) {
+      daysElapsed += dateTime2;
+    }
   }
 
   const hoursElapsed = (daysElapsed - 1) * 24 + dateTime.hour;
