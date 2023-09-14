@@ -31,10 +31,12 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
   console.log(annual);
 
   // Parse the input datetime string
-  if (DT) {
-    const dateTime = DateTime.fromISO(DT);
-  } else {
-    throw new Error("DT is undefined.");
+  const dateTime = (DT) => {
+    if (DT) {
+      return DateTime.fromISO(DT);
+    } else {
+      throw new Error("DT is undefined.");
+    }
   }
 
   // Compute year to date demand and days elapsed
