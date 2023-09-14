@@ -31,7 +31,7 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
   console.log(annual);
 
   // Parse the input datetime string
-  const dateTime = (DT) => {
+  const dateTime = (DT: string) => {
     if (DT) {
       return DateTime.fromISO(DT);
     } else {
