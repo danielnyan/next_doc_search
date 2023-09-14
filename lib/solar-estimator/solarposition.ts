@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DateTime } from 'luxon';
-import { toBearing } from 'conversions';
+import { toBearing } from '@/lib/solar-estimator/conversions';
 
 // Read local .env file and store API keys
 import dotenv from 'dotenv';
