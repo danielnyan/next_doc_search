@@ -5,7 +5,7 @@ export function getSolarEstimate(LAT: number, LON: number, azimuth: number, tilt
 
   // Set the parameters for the request
   const parameters = new URLSearchParams({
-    api_key: DATAGOV_KEY,
+    api_key: DATAGOV_KEY || "",
     system_capacity: '0.25',  // kW (standard residential size is about 250 W)
     module_type: '0',  // 0: Standard, 1: Premium, 2: Thin film
     losses: '15',  // % (default value)
