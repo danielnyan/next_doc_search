@@ -10,6 +10,13 @@ const workbook = xlsx.readFile(excelFilePath);
 const sheetName = 'T3.5';
 const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
+function assertDefined<T>(value: T | undefined | null, message?: string): T {
+  if (value === undefined || value === null) {
+    throw new Error(message || 'Assertion failed: Value is undefined or null');
+  }
+  return value;
+}
+
 export function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
@@ -31,14 +38,10 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
   console.log(annual);
 
   // Parse the input datetime string
-  const dateTime = ((DT: string) => {
-    if (DT) {
-      return DateTime.fromISO(DT);
-    } else {
-      throw new Error("DT is undefined.");
-    }
-  })(DT)
-
+  assertDefined(DT);
+  const dateTime = DateTime.fromISO(DT);
+  assertDefined(dateTime);
+ 
   // Compute year to date demand and days elapsed
   let ytd = 0;
   for (let mm = 1; mm <= dateTime.month; mm++) {
@@ -57,13 +60,18 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
 }
 
 export function getHoursElapsed(DT: string): number {
+  assertDefined(DT);
+  
   // Parse the input datetime string
   const dateTime = DateTime.fromISO(DT);
+  assertDefined(dateTime);
 
   // Compute days elapsed
   let daysElapsed = 0;
   for (let mm = 1; mm <= dateTime.month; mm++) {
-    daysElapsed += DateTime.fromObject({ year: dateTime.year, month: mm }).daysInMonth;
+    const dateTime2 = DateTime.fromObject({ year: dateTime.year, month: mm }).daysInMonth;
+    assertDefined(dateTime2);
+    daysElapsed += dateTime2;
   }
 
   const hoursElapsed = (daysElapsed - 1) * 24 + dateTime.hour;
