@@ -1,4 +1,4 @@
-function toBearing(a: number): string {
+export function toBearing(a: number): string {
   // Ensure the azimuth angle is between 0 and 360 degrees
   while (a > 360) {
     a -= 360;

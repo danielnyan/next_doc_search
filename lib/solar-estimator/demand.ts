@@ -10,7 +10,7 @@ const workbook = xlsx.readFile(excelFilePath);
 const sheetName = 'T3.5';
 const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
+export function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
   }
@@ -50,7 +50,7 @@ function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
   return [annual, ytd];
 }
 
-function getHoursElapsed(DT: string): number {
+export function getHoursElapsed(DT: string): number {
   // Parse the input datetime string
   const dateTime = DateTime.fromISO(DT);
 

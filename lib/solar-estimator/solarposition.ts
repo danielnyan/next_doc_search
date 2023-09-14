@@ -76,7 +76,7 @@ Computing the optimal tilt of the solar panel ...
   }
 }
 
-async function getOptimalAngles(LAT: number, LON: number, exposureTimes: { [key: string]: string }): Promise<[number, number]> {
+export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: { [key: string]: string }): Promise<[number, number]> {
   const azimuthAngles: number[] = [];
   const altitudeAngles: number[] = [];
 

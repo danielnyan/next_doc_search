@@ -16,7 +16,7 @@ function formatAddress(s: string): string {
 }
 
 // Geocode address and return LAT, LON, SYSTEM_MSG
-async function geocode(ADDRESS: string): Promise<[number, number, string]> {
+export async function geocode(ADDRESS: string): Promise<[number, number, string]> {
   ADDRESS = formatAddress(ADDRESS);
   try {
     const response = await axios.get(`https://api.tomtom.com/search/2/geocode/${ADDRESS}.json?storeResult=false&view=Unified&key=${TOMTOM_API_KEY}`);
