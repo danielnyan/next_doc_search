@@ -16,16 +16,16 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
   }
 
   // 2021 is the latest complete year, filter by dwelling type
-  const demand = df.filter(
+  const demand: any[] = df.filter(
     (entry: any) => entry.year === 2021 && entry.dwelling_type === DWELLING
   );
 
-  const annual = (12 * demand.find(
+  const annual = 12 * demand.find(
     (entry: any) =>
       entry.month === 'Annual' &&
       entry.Region === 'Overall' &&
       entry.Description === 'Overall'
-  ) as any)?.kwh_per_acc || 0;
+  )?.kwh_per_acc || 0;
 
   console.log(demand);
   console.log(annual);
