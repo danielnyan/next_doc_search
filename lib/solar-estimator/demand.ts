@@ -20,12 +20,12 @@ export function getDemandEstimate(DT: string, DWELLING: string): [number, number
     (entry: any) => entry.year === 2021 && entry.dwelling_type === DWELLING
   );
 
-  const annual = 12 * demand.find(
+  const annual = (12 * demand.find(
     (entry: any) =>
       entry.month === 'Annual' &&
       entry.Region === 'Overall' &&
       entry.Description === 'Overall'
-  )?.kwh_per_acc || 0;
+  ) as any)?.kwh_per_acc || 0;
 
   console.log(demand);
   console.log(annual);
