@@ -43,7 +43,7 @@ export async function geocode(ADDRESS: string): Promise<[number, number, string]
     }
 
     return [LAT, LON, SYSTEM_MSG];
-  } catch (error) {
+  } catch (error: any) {
     console.error(error.message);
     return [0, 0, '']; // Return default values in case of an error
   }
