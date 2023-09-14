@@ -1,6 +1,6 @@
 const DATAGOV_KEY = process.env.DATAGOV_KEY
 
-export function getSolarEstimate(LAT: number, LON: number, azimuth: number, tilt: number): Promise<[number, string]> {
+export function getSolarEstimate(LAT: number, LON: number, azimuth: number, tilt: number): Promise<{ raw_data: any; estimate: number[]; system_msg: string; }> {
   const url = 'https://developer.nrel.gov/api/pvwatts/v6.json';
 
   // Set the parameters for the request

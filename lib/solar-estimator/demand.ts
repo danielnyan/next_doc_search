@@ -72,6 +72,8 @@ export function getHoursElapsed(DT: string): number {
     const dateTime2 = DateTime.fromObject({ year: dateTime.year, month: mm }).daysInMonth;
     if (dateTime2 !== undefined) {
       daysElapsed += dateTime2;
+    } else {
+      throw new Error(`Unable to get the number of days in month`)
     }
   }
 
