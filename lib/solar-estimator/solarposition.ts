@@ -107,6 +107,7 @@ export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: 
   return [optimalAzimuth, optimalAltitude];
 }
 
+/*
 // Example usage:
 const LAT = 1.23; // Replace with your latitude
 const LON = 4.56; // Replace with your longitude
@@ -119,4 +120,4 @@ async function main() {
   console.log(`Optimal Altitude Angle (Tilt): ${optimalAltitude}°`);
 }
 
-main();
+main();*/
