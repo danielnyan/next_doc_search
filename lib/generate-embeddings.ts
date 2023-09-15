@@ -322,8 +322,9 @@ async function generateEmbeddings() {
         .filter('path', 'eq', path)
         .limit(1)
         .maybeSingle()
-
+      console.log(path)
       if (fetchPageError) {
+        console.log("what is up?")
         throw fetchPageError
       }
 
