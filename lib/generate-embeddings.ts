@@ -332,7 +332,7 @@ async function generateEmbeddings() {
 
       // We use checksum to determine if this page & its sections need to be regenerated
       if (!shouldRefresh && existingPage?.checksum === checksum) {
-        const existingParentPage = existingPage?.parentPage as Singular<
+        const existingParentPage = existingPage?.parentPage as unknown as Singular<
           typeof existingPage.parentPage
         >
 
