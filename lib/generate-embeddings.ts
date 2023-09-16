@@ -331,8 +331,8 @@ async function generateEmbeddings() {
       type Singular<T> = T extends any[] ? undefined : T
 
       // We use checksum to determine if this page & its sections need to be regenerated
-      if (!shouldRefresh && existingPage?.checksum === checksum) {
-        const existingParentPage = existingPage?.parentPage as unknown as Singular<
+      if (!shouldRefresh && existingPage && existingPage.parentPage && existingPage?.checksum === checksum) {
+        const existingParentPage = existingPage.parentPage as Singular<
           typeof existingPage.parentPage
         >
 
