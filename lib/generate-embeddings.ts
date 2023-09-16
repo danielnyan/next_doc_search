@@ -296,7 +296,7 @@ async function generateEmbeddings() {
 
   const embeddingSources: EmbeddingSource[] = [
     ...(await walk('pages'))
-      .filter(({ path }) => /\.mdx?$/.test(path))
+      .filter(({ path }) => /^(?!raw docs).*\.mdx?$/.test(path))
       .filter(({ path }) => !ignoredFiles.includes(path))
       .map((entry) => new MarkdownEmbeddingSource('guide', entry.path)),
   ]
@@ -322,7 +322,7 @@ async function generateEmbeddings() {
         .filter('path', 'eq', path)
         .limit(1)
         .maybeSingle()
-      console.log(path)
+      console.log(typeof existingPage)
       if (fetchPageError) {
         console.log("what is up?")
         throw fetchPageError
