@@ -138,7 +138,7 @@ function processMdxForSearch(content: string): ProcessedMdx {
   // Remove all MDX elements from markdown
   const mdTree = filter(
     mdxTree,
-    (node) =>
+    (node: { type: string }) =>
       ![
         'mdxjsEsm',
         'mdxJsxFlowElement',
@@ -322,19 +322,14 @@ async function generateEmbeddings() {
         .filter('path', 'eq', path)
         .limit(1)
         .maybeSingle()
-      console.log(typeof existingPage)
+        
       if (fetchPageError) {
         console.log("what is up?")
         throw fetchPageError
       }
 
-      type Singular<T> = T extends any[] ? undefined : T
-
-      // We use checksum to determine if this page & its sections need to be regenerated
-      if (!shouldRefresh && existingPage && existingPage.parentPage && existingPage?.checksum === checksum) {
-        const existingParentPage = existingPage.parentPage as Singular<
-          typeof existingPage.parentPage
-        >
+      if (!shouldRefresh && existingPage !== null && existingPage.checksum === checksum) {
+        const existingParentPage = existingPage.parentPage.length === 1 ? existingPage.parentPage[0] : undefined;
 
         // If parent page changed, update it
         if (existingParentPage?.path !== parentPath) {
