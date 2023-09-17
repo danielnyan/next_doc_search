@@ -1,9 +1,4 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const TOMTOM_API_KEY = process.env.TOMTOM_API_KEY;
-console.log(process.env.TEST_KEY);
 
 /**
  * 1. GEOCODING API (TOMTOM):
@@ -17,7 +12,7 @@ function formatAddress(s: string): string {
 }
 
 // Geocode address and return LAT, LON, SYSTEM_MSG
-export async function geocode(ADDRESS: string): Promise<[number, number, string]> {
+export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<[number, number, string]> {
   ADDRESS = formatAddress(ADDRESS);
   try {
     const response = await axios.get(`https://api.tomtom.com/search/2/geocode/${ADDRESS}.json?storeResult=false&view=Unified&key=${TOMTOM_API_KEY}`);

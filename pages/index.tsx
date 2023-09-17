@@ -7,13 +7,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import {sha512} from 'js-sha512'
-import {test} from '@/lib/solar-estimator/test'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  console.log(process.env.TEST_KEY);
-  test();
+  console.log(`${window.location.href}`);
+  
   const MainContent = () => (
     <main className={styles.main}>
       <div className={styles.center}>
