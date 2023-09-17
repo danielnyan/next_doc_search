@@ -5,7 +5,7 @@ import {geocode} from '@/lib/solar-estimator/geocode'
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function handler(request: NextApiRequest, response: NextApiResponse) {
+export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   console.log("Hello world!");
   console.log(await geocode("464, Pasir Ris Street 41", process.env.TOMTOM_API_KEY));
   console.log(await geocode("Bras basah", process.env.TOMTOM_API_KEY));
