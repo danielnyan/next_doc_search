@@ -296,7 +296,7 @@ async function generateEmbeddings() {
 
   const embeddingSources: EmbeddingSource[] = [
     ...(await walk('pages'))
-      .filter(({ path }) => /^(?!raw docs).*\.mdx?$/.test(path))
+      .filter(({ path }) => !path.includes('/raw docs/') &&  /\.mdx?$/.test(path))
       .filter(({ path }) => !ignoredFiles.includes(path))
       .map((entry) => new MarkdownEmbeddingSource('guide', entry.path)),
   ]
