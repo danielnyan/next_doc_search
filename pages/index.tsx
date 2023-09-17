@@ -12,6 +12,7 @@ import {test} from '@/lib/solar-estimator/test'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  console.log(process.env.TEST_KEY);
   test();
   const MainContent = () => (
     <main className={styles.main}>
