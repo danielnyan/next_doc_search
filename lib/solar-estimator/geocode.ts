@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const TOMTOM_API_KEY = process.env.TOMTOM_API_KEY;
+console.log(process.env.TEST_KEY);
 
 /**
  * 1. GEOCODING API (TOMTOM):
