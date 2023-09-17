@@ -48,13 +48,3 @@ export async function geocode(ADDRESS: string): Promise<[number, number, string]
     return [0, 0, '']; // Return default values in case of an error
   }
 }
-
-// Example usage:
-const ADDRESS = 'Your Address Here'; // Replace with the address you want to geocode
-
-async function main() {
-  const [LAT, LON, SYSTEM_MSG] = await geocode(ADDRESS);
-  // You can use LAT, LON, and SYSTEM_MSG in your further processing
-}
-
-main();

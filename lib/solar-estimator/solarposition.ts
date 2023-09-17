@@ -30,54 +30,90 @@ function timeReadable(sgt: DateTime): string {
   return HHMM + ' SGT';
 }
 
-async function getSunInfo(LAT: number, LON: number, DT: string): Promise<void> {
+interface SolarPosition {
+  dawn: string;
+  sunrise: string;
+  sunriseEnd: string;
+  solarNoon: string;
+  sunsetStart: string;
+  sunset: string;
+  dusk: string;
+}
+
+interface SolarResponse {
+  result: {
+    sun_info: {
+      sun_times: SolarPosition;
+      sun_position: {
+        azimuth: number;
+        altitude: number;
+      };
+    };
+    uv_time: string;
+    uv: number;
+  };
+}
+
+export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<void> {
   const url = `https://api.openuv.io/api/v1/uv?lat=${LAT}&lng=${LON}&alt=15&dt=${DT}`;
   const headers = { 'x-access-token': OPENUV_API_KEY };
   try {
-    const response = await axios.get(url, { headers });
-    const data = response.data.result;
-
-    // Get key times of solar exposure today and print data
-    const exposureTimes: { [key: string]: string } = {};
-    for (const key of ['dawn', 'sunrise', 'sunriseEnd', 'solarNoon', 'sunsetStart', 'sunset', 'dusk']) {
-      exposureTimes[key] = data.sun_info.sun_times[key];
+    const response = await axios.get<SolarResponse>(url, { headers });
+    const exposure_times: SolarPosition = {} as SolarPosition;
+    
+    for (const key of [
+      'dawn',
+      'sunrise',
+      'sunriseEnd',
+      'solarNoon',
+      'sunsetStart',
+      'sunset',
+      'dusk',
+    ]) {
+      exposure_times[key] = response.data.result.sun_info.sun_times[key];
     }
 
-    const currentUV = data.uv;
-    const currentAzimuth = (data.sun_info.sun_position.azimuth * 180 / Math.PI) + 180;
-    const currentAltitude = (data.sun_info.sun_position.altitude * 180 / Math.PI).toFixed(2);
+    const current_time = response.data.result.uv_time;
+    const current_uv = response.data.result.uv;
+    const current_azimuth =
+      (response.data.result.sun_info.sun_position.azimuth * (180 / Math.PI)) + 180;
+    const current_altitude =
+      (response.data.result.sun_info.sun_position.altitude * (180 / Math.PI));
 
     let image = '';
-    if (data.uv_time < exposureTimes['dawn'] || data.uv_time > exposureTimes['dusk']) {
+    if (current_time < exposure_times.dawn || current_time > exposure_times.dusk) {
       image = 'nosun.svg';
-    } else if (data.uv_time <= exposureTimes['sunriseEnd'] || data.uv_time >= exposureTimes['sunsetStart']) {
+    } else if (
+      current_time <= exposure_times.sunriseEnd ||
+      current_time >= exposure_times.sunsetStart
+    ) {
       image = 'halfsun.svg';
     } else {
       image = 'fullsun.svg';
     }
 
-    console.log(`
-The current time is: ${timeReadable(utcToSgt(data.uv_time))}
-Current Solar Bearing: ${toBearing(currentAzimuth)}
-Current Solar Angle: ${currentAltitude}°
-Current UV Index: ${currentUV}
-Icon: ${image}
+    console.log(`\nThe current time is: ${time_readable(utc_to_sgt(current_time))}\n\
+    Current Solar Bearing: ${to_bearing(current_azimuth)}\n\
+    Current Solar Angle: ${current_altitude.toFixed(2)}°\n\
+    Current UV Index: ${current_uv}\n\
+    Icon: ${image}\n\
+    \n\
+    Today's Projected Solar Exposure:\n\
+    \t${time_readable(utc_to_sgt(exposure_times.dawn))} -- DAWN\n\
+    \t${time_readable(utc_to_sgt(exposure_times.sunrise))} -- SUNRISE\n\
+    \t${time_readable(utc_to_sgt(exposure_times.solarNoon))} -- SOLAR NOON\n\
+    \t${time_readable(utc_to_sgt(exposure_times.sunset))} -- SUNSET\n\
+    \t${time_readable(utc_to_sgt(exposure_times.dusk))} -- DUSK\n\n\
+    Computing optimal tilt of solar panel ...`);
 
-Today's Projected Solar Exposure:
-\t${timeReadable(utcToSgt(exposureTimes['dawn']))} -- DAWN
-\t${timeReadable(utcToSgt(exposureTimes['sunrise']))} -- SUNRISE
-\t${timeReadable(utcToSgt(exposureTimes['solarNoon']))} -- SOLAR NOON
-\t${timeReadable(utcToSgt(exposureTimes['sunset']))} -- SUNSET
-\t${timeReadable(utcToSgt(exposureTimes['dusk']))} -- DUSK
-
-Computing the optimal tilt of the solar panel ...
-`);
-  } catch (error : any) {
-    console.error(error.message);
+    return exposure_times;
+  } catch (error: any) {
+    console.error(error);
+    throw error;
   }
 }
 
-export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: { [key: string]: string }): Promise<[number, number]> {
+export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: SolarPosition): Promise<[number, number]> {
   const azimuthAngles: number[] = [];
   const altitudeAngles: number[] = [];
 
@@ -91,7 +127,7 @@ export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: 
       const headers = { 'x-access-token': OPENUV_API_KEY };
 
       try {
-        const response = await axios.get(url, { headers });
+        const response = await axios.get<SolarResponse>(url, { headers });
         const sunPosition = response.data.result.sun_info.sun_position;
         azimuthAngles.push((sunPosition.azimuth * 180 / Math.PI) + 180);
         altitudeAngles.push((sunPosition.altitude * 180 / Math.PI));
