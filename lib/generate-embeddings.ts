@@ -20,6 +20,9 @@ import yargs from 'yargs'
 
 dotenv.config()
 
+console.log(process.env.TEST_KEY);
+console.log(typeof process.env.OPENAI_KEY);
+
 const ignoredFiles = ['pages/404.mdx']
 
 /**
