@@ -4,6 +4,7 @@ dotenv.config();
 
 const TOMTOM_API_KEY = process.env.TOMTOM_API_KEY;
 console.log(process.env.TEST_KEY);
+console.log(typeof process.env.OPENAI_KEY);
 
 /**
  * 1. GEOCODING API (TOMTOM):
