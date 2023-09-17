@@ -54,7 +54,7 @@ interface SolarResponse {
   };
 }
 
-export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<void> {
+export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<SolarPosition> {
   const url = `https://api.openuv.io/api/v1/uv?lat=${LAT}&lng=${LON}&alt=15&dt=${DT}`;
   const headers = { 'x-access-token': OPENUV_API_KEY };
   try {
@@ -70,7 +70,8 @@ export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<
       'sunset',
       'dusk',
     ]) {
-      exposure_times[key] = response.data.result.sun_info.sun_times[key];
+      exposure_times[key as keyof SolarPosition] = 
+        response.data.result.sun_info.sun_times[key as keyof SolarPosition];
     }
 
     const current_time = response.data.result.uv_time;
@@ -92,18 +93,18 @@ export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<
       image = 'fullsun.svg';
     }
 
-    console.log(`\nThe current time is: ${time_readable(utc_to_sgt(current_time))}\n\
-    Current Solar Bearing: ${to_bearing(current_azimuth)}\n\
+    console.log(`\nThe current time is: ${timeReadable(utcToSgt(current_time))}\n\
+    Current Solar Bearing: ${toBearing(current_azimuth)}\n\
     Current Solar Angle: ${current_altitude.toFixed(2)}°\n\
     Current UV Index: ${current_uv}\n\
     Icon: ${image}\n\
     \n\
     Today's Projected Solar Exposure:\n\
-    \t${time_readable(utc_to_sgt(exposure_times.dawn))} -- DAWN\n\
-    \t${time_readable(utc_to_sgt(exposure_times.sunrise))} -- SUNRISE\n\
-    \t${time_readable(utc_to_sgt(exposure_times.solarNoon))} -- SOLAR NOON\n\
-    \t${time_readable(utc_to_sgt(exposure_times.sunset))} -- SUNSET\n\
-    \t${time_readable(utc_to_sgt(exposure_times.dusk))} -- DUSK\n\n\
+    \t${timeReadable(utcToSgt(exposure_times.dawn))} -- DAWN\n\
+    \t${timeReadable(utcToSgt(exposure_times.sunrise))} -- SUNRISE\n\
+    \t${timeReadable(utcToSgt(exposure_times.solarNoon))} -- SOLAR NOON\n\
+    \t${timeReadable(utcToSgt(exposure_times.sunset))} -- SUNSET\n\
+    \t${timeReadable(utcToSgt(exposure_times.dusk))} -- DUSK\n\n\
     Computing optimal tilt of solar panel ...`);
 
     return exposure_times;
