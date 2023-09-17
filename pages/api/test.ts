@@ -11,8 +11,8 @@ export async function test(request: NextApiRequest, response: NextApiResponse) {
   console.log(await geocode("Bras basah", process.env.TOMTOM_API_KEY));
   console.log(await geocode("123 Rainbow Street", process.env.TOMTOM_API_KEY));
   response.status(200).json({
-    body: request.body,
+    // body: request.body,
     query: request.query,
-    cookies: request.cookies,
+    // cookies: request.cookies,
   });
 }
