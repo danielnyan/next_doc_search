@@ -11,7 +11,7 @@ import {sha512} from 'js-sha512'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  console.log(`${window.location.href}`);
+  fetch('api/test');
   
   const MainContent = () => (
     <main className={styles.main}>
