@@ -37,7 +37,7 @@ export async function getSolarEstimate(
       estimate: data.outputs.ac,
       system_msg: SYSTEM_MSG,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error(error.message);
     throw error;
   }
