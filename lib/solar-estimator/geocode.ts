@@ -11,8 +11,14 @@ function formatAddress(s: string): string {
   return s.replace(" ", "+") + ",+Singapore";
 }
 
+export interface GeocodeResult {
+  LAT: number;
+  LON: number;
+  SYSTEM_MSG: string;
+}
+
 // Geocode address and return LAT, LON, SYSTEM_MSG
-export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<[number, number, string]> {
+export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<GeocodeResult> {
   ADDRESS = formatAddress(ADDRESS);
   try {
     const response = await axios.get(`https://api.tomtom.com/search/2/geocode/${ADDRESS}.json?storeResult=false&view=Unified&key=${TOMTOM_API_KEY}`);
@@ -38,9 +44,16 @@ export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<
     Longitude: ${LON}`);
     }
 
-    return [LAT, LON, SYSTEM_MSG];
+    return {LAT, 
+      LON, 
+      SYSTEM_MSG
+    };
   } catch (error: any) {
     console.error(error.message);
-    return [0, 0, '']; // Return default values in case of an error
+    return {
+      LAT: 0,
+      LON: 0,
+      SYSTEM_MSG: ''
+    }; // Return default values in case of an error
   }
 }
