@@ -30,7 +30,7 @@ function timeReadable(sgt: DateTime): string {
   return HHMM + ' SGT';
 }
 
-interface SolarPosition {
+export interface SolarPosition {
   dawn: string;
   sunrise: string;
   sunriseEnd: string;
@@ -40,7 +40,7 @@ interface SolarPosition {
   dusk: string;
 }
 
-interface SolarResponse {
+export interface SolarResponse {
   result: {
     sun_info: {
       sun_times: SolarPosition;
@@ -93,20 +93,6 @@ export async function getSunInfo(LAT: number, LON: number, DT: string): Promise<
       image = 'fullsun.svg';
     }
 
-    console.log(`\nThe current time is: ${timeReadable(utcToSgt(current_time))}\n\
-    Current Solar Bearing: ${toBearing(current_azimuth)}\n\
-    Current Solar Angle: ${current_altitude.toFixed(2)}°\n\
-    Current UV Index: ${current_uv}\n\
-    Icon: ${image}\n\
-    \n\
-    Today's Projected Solar Exposure:\n\
-    \t${timeReadable(utcToSgt(exposure_times.dawn))} -- DAWN\n\
-    \t${timeReadable(utcToSgt(exposure_times.sunrise))} -- SUNRISE\n\
-    \t${timeReadable(utcToSgt(exposure_times.solarNoon))} -- SOLAR NOON\n\
-    \t${timeReadable(utcToSgt(exposure_times.sunset))} -- SUNSET\n\
-    \t${timeReadable(utcToSgt(exposure_times.dusk))} -- DUSK\n\n\
-    Computing optimal tilt of solar panel ...`);
-
     return exposure_times;
   } catch (error: any) {
     console.error(error);
@@ -144,17 +130,3 @@ export async function getOptimalAngles(LAT: number, LON: number, exposureTimes: 
   return [optimalAzimuth, optimalAltitude];
 }
 
-/*
-// Example usage:
-const LAT = 1.23; // Replace with your latitude
-const LON = 4.56; // Replace with your longitude
-const DT = '2023-09-14T15:30:00Z'; // Replace with your datetime string
-
-async function main() {
-  const exposureTimes = await getSunInfo(LAT, LON, DT);
-  const [optimalAzimuth, optimalAltitude] = await getOptimalAngles(LAT, LON, exposureTimes);
-  console.log(`Optimal Azimuth Angle: ${optimalAzimuth}°`);
-  console.log(`Optimal Altitude Angle (Tilt): ${optimalAltitude}°`);
-}
-
-main();*/

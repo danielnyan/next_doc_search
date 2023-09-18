@@ -12,12 +12,13 @@ function formatAddress(s: string): string {
 }
 
 export interface GeocodeResult {
-  LAT: number;
-  LON: number;
-  SYSTEM_MSG: string;
+  lat: number;
+  lon: number;
+  message: string;
+  error: string | null;
 }
 
-// Geocode address and return LAT, LON, SYSTEM_MSG
+// Geocode address and return lat, lon, message
 export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<GeocodeResult> {
   ADDRESS = formatAddress(ADDRESS);
   try {
@@ -29,31 +30,28 @@ export async function geocode(ADDRESS: string, TOMTOM_API_KEY: string): Promise<
       throw new Error("Oops! The address you have queried was not found in Singapore.");
     }
 
-    const LAT = data.results[0].position.lat;
-    const LON = data.results[0].position.lon;
+    const lat = data.results[0].position.lat;
+    const lon = data.results[0].position.lon;
 
-    let SYSTEM_MSG = '';
+    let message = '';
     if (data.results[0].address.freeformAddress === "Singapore") {
-      SYSTEM_MSG = "The address you are querying is too general. Providing an island-averaged estimate instead.";
-      console.log(SYSTEM_MSG);
+      message = "The address you are querying is too general. Providing an island-averaged estimate instead.";
     } else {
-      SYSTEM_MSG = `The address you are querying is: ${data.results[0].address.freeformAddress}.`;
-      console.log(SYSTEM_MSG);
-      console.log(`This address has the following coordinates:
-    Latitude: ${LAT}
-    Longitude: ${LON}`);
+      message = `The address you are querying is: ${data.results[0].address.freeformAddress}.`;;
     }
 
-    return {LAT, 
-      LON, 
-      SYSTEM_MSG
+    return {lat, 
+      lon, 
+      message,
+      error: null
     };
   } catch (error: any) {
     console.error(error.message);
     return {
-      LAT: 0,
-      LON: 0,
-      SYSTEM_MSG: ''
+      lat: 0,
+      lon: 0,
+      message: '',
+      error: error.message
     }; // Return default values in case of an error
   }
 }
