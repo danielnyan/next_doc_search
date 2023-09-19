@@ -5,6 +5,7 @@ import { DateTime } from 'luxon';
 // Read the Excel file
 const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
 const file = await (await fetch(url)).arrayBuffer();
+console.log("SES 2022 data is fetched from EMA");
 
 const workbook = xlsx.read(file);
 const sheetName = 'T3.5';
