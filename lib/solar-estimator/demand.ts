@@ -2,8 +2,12 @@ import * as path from 'path';
 import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
+import * as fs from 'fs';
+console.log(fs.existsSync("/dsaid.svg"));
+
 // Define the path to the Excel file
-const excelFilePath = 'public/SES_Public_2022_tidy.xlsx';
+const excelFilePath = '/SES_Public_2022_tidy.xlsx';
+console.log(fs.existsSync(excelFilePath));
 
 // Read the Excel file
 const workbook = xlsx.readFile(excelFilePath);
