@@ -33,6 +33,10 @@ export default async function handler(request: NextApiRequest, response: NextApi
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
   }
+  
+  if (df === null) {
+    throw new Error("Unable to load data from EMA's website");
+  }
 
   // 2021 is the latest complete year, filter by dwelling type
   const demand: any[] = df.filter(
