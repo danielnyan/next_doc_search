@@ -3,7 +3,7 @@ import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
 // Read the Excel file
-let df = null;
+let df : unknown[] | null = null;
 
 function assertDefined<T>(value: T | undefined | null, message?: string): T {
   if (value === undefined || value === null) {
@@ -12,7 +12,7 @@ function assertDefined<T>(value: T | undefined | null, message?: string): T {
   return value;
 }
 
-export default function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
+export default async function getDemandEstimate(DT: string, DWELLING: string): Promise<[number,number]> {
   if (df === null) {
     const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
     const file = await (await fetch(url)).arrayBuffer();
