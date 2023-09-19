@@ -26,16 +26,14 @@ export default async function handler(request: NextApiRequest, response: NextApi
     const sheetName = 'T3.5';
     df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
   }
+  
+  assertDefined(df);
 
-  let DT = request.query.dt;
-  let DWELLING = request.query.dwelling;
+  let DT = request.query.dt as string;
+  let DWELLING = request.query.dwelling as string;
   
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
-  }
-  
-  if (df === null) {
-    throw new Error("Unable to load data from EMA's website");
   }
 
   // 2021 is the latest complete year, filter by dwelling type
