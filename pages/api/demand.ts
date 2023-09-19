@@ -27,8 +27,8 @@ export default async function handler(request: NextApiRequest, response: NextApi
     df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
   }
 
-  const DT = request.query.dt;
-  const DWELLING = request.query.dwelling;
+  let DT = request.query.dt;
+  let DWELLING = request.query.dwelling;
   
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
