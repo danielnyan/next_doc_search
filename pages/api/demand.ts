@@ -2,6 +2,8 @@ import * as path from 'path';
 import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
+import { NextApiRequest, NextApiResponse } from 'next';
+
 // Read the Excel file
 let df : unknown[] | null = null;
 
@@ -12,7 +14,9 @@ function assertDefined<T>(value: T | undefined | null, message?: string): T {
   return value;
 }
 
-export default async function getDemandEstimate(DT: string, DWELLING: string): Promise<[number,number]> {
+export default async function handler(request: NextApiRequest, response: NextApiResponse): Promise<[number,number]> {
+  return [1, 2];
+  
   if (df === null) {
     const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
     const file = await (await fetch(url)).arrayBuffer();
@@ -22,6 +26,14 @@ export default async function getDemandEstimate(DT: string, DWELLING: string): P
     const sheetName = 'T3.5';
     df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
   }
+  
+  const requestData = await req.json();
+
+  if (!requestData) {
+    throw new UserError('Missing request data')
+  }
+
+  const { dt: DT, dwelling: DWELLING } = requestData;
   
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';

@@ -16,7 +16,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
     = await getSolarEstimate(lat, lon, azi, tilt);
   
   const [annualDemand, ytdDemand] = 
-    await fetch('api/demand?dt=dt&dwelling=3-room')
+    await fetch('api/demand')
   console.log(annualDemand);
   
   response.status(200).json({
