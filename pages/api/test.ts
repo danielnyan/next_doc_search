@@ -15,7 +15,9 @@ export default async function handler(request: NextApiRequest, response: NextApi
   const [azi, tilt] = await getOptimalAngles(lat, lon, exposureTimes);
   const {estimate: pv_estimate, system_msg: pv_message}
     = await getSolarEstimate(lat, lon, azi, tilt);
-  console.log(pv_estimate[0])
+  
+  const [annualDemand, ytdDemand] = getDemandEstimate(dt, "3-room")
+  console.log(annualDemand);
   
   response.status(200).json({
     // body: request.body,

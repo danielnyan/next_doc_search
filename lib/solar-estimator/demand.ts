@@ -81,13 +81,3 @@ export function getHoursElapsed(DT: string): number {
 
   return hoursElapsed;
 }
-
-// Example usage:
-const DT = '2023-09-14T15:30:00'; // Replace with your datetime string
-const DWELLING = 'Some Dwelling'; // Replace with your dwelling type
-const [annualDemand, ytdDemand] = getDemandEstimate(DT, DWELLING);
-const hoursElapsed = getHoursElapsed(DT);
-
-console.log(`Annual Demand: ${annualDemand} kWh`);
-console.log(`Year-to-Date Demand: ${ytdDemand} kWh`);
-console.log(`Hours Elapsed: ${hoursElapsed} hours`);
