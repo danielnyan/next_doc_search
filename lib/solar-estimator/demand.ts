@@ -1,12 +1,10 @@
 import * as path from 'path';
 import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
-
-// Define the path to the Excel file
-const excelFilePath = path.join(__dirname, '../data/SES_Public_2022_tidy.xlsx');
+import base64 from '@/data/SES_Public_2022_tidy.xlsx';
 
 // Read the Excel file
-const workbook = xlsx.readFile(excelFilePath);
+const workbook = xlsx.read(base64);
 const sheetName = 'T3.5';
 const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
