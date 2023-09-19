@@ -26,14 +26,9 @@ export default async function handler(request: NextApiRequest, response: NextApi
     const sheetName = 'T3.5';
     df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
   }
-  
-  const requestData = await req.json();
 
-  if (!requestData) {
-    throw new UserError('Missing request data')
-  }
-
-  const { dt: DT, dwelling: DWELLING } = requestData;
+  const DT = request.query.dt;
+  const DWELLING = request.query.dwelling;
   
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
