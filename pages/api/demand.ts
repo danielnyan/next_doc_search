@@ -3,13 +3,7 @@ import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
 // Read the Excel file
-const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
-const file = await (await fetch(url)).arrayBuffer();
-console.log("SES 2022 data is fetched from EMA");
-
-const workbook = xlsx.read(file);
-const sheetName = 'T3.5';
-const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+let df = null;
 
 function assertDefined<T>(value: T | undefined | null, message?: string): T {
   if (value === undefined || value === null) {
@@ -19,6 +13,16 @@ function assertDefined<T>(value: T | undefined | null, message?: string): T {
 }
 
 export default function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
+  if (df === null) {
+    const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
+    const file = await (await fetch(url)).arrayBuffer();
+    console.log("SES 2022 data is fetched from EMA");
+
+    const workbook = xlsx.read(file);
+    const sheetName = 'T3.5';
+    df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+  }
+  
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
   }
