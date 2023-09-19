@@ -3,7 +3,7 @@ import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
 // Define the path to the Excel file
-const excelFilePath = '/SES_Public_2022_tidy.xlsx';
+const excelFilePath = path.join(process.cwd(), '/SES_Public_2022_tidy.xlsx');
 
 // Read the Excel file
 const workbook = xlsx.readFile(excelFilePath);
