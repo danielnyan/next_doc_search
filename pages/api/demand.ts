@@ -1,10 +1,12 @@
 import * as path from 'path';
 import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
-import base64 from '@/data/SES_Public_2022_tidy.xlsx';
 
 // Read the Excel file
-const workbook = xlsx.read(base64);
+const url = "https://www.ema.gov.sg/content/dam/corporate/singapore-energy-statistics/excel/SES_Public_2022.xlsx.coredownload.xlsx";
+const file = await (await fetch(url)).arrayBuffer();
+
+const workbook = xlsx.read(file);
 const sheetName = 'T3.5';
 const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 

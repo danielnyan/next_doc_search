@@ -1,6 +1,5 @@
 import {getSolarEstimate} from '@/lib/solar-estimator/pvwatts'
 import {getSunInfo, getOptimalAngles} from '@/lib/solar-estimator/solarposition'
-import {getDemandEstimate, getHoursElapsed} from '@/lib/solar-estimator/demand'
 import {geocode} from '@/lib/solar-estimator/geocode'
 
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -16,7 +15,8 @@ export default async function handler(request: NextApiRequest, response: NextApi
   const {estimate: pv_estimate, system_msg: pv_message}
     = await getSolarEstimate(lat, lon, azi, tilt);
   
-  const [annualDemand, ytdDemand] = await getDemandEstimate(dt, "3-room")
+  const [annualDemand, ytdDemand] = 
+    await fetch('api/demand?dt=dt&dwelling=3-room')
   console.log(annualDemand);
   
   response.status(200).json({
