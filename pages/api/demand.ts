@@ -37,19 +37,16 @@ export default async function handler(request: NextApiRequest, response: NextApi
   }
 
   // 2021 is the latest complete year, filter by dwelling type
-  const demand: any[] = df.filter(
+  const demand: any[] = df?.filter(
     (entry: any) => entry.year === 2021 && entry.dwelling_type === DWELLING
   );
 
-  const annual = 12 * demand.find(
+  const annual = 12 * demand?.find(
     (entry: any) =>
       entry.month === 'Annual' &&
       entry.Region === 'Overall' &&
       entry.Description === 'Overall'
   )?.kwh_per_acc || 0;
-
-  console.log(demand);
-  console.log(annual);
 
   // Parse the input datetime string
   assertDefined(DT);
