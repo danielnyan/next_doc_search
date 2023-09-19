@@ -2,12 +2,8 @@ import * as path from 'path';
 import * as xlsx from 'xlsx';
 import { DateTime } from 'luxon';
 
-import * as fs from 'fs';
-console.log(fs.existsSync("/dsaid.svg"));
-
 // Define the path to the Excel file
-const excelFilePath = '/SES_Public_2022_tidy.xlsx';
-console.log(fs.existsSync(excelFilePath));
+const excelFilePath = path.join(__dirname, '../data/SES_Public_2022_tidy.xlsx');
 
 // Read the Excel file
 const workbook = xlsx.readFile(excelFilePath);
@@ -21,7 +17,7 @@ function assertDefined<T>(value: T | undefined | null, message?: string): T {
   return value;
 }
 
-export function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
+export default function getDemandEstimate(DT: string, DWELLING: string): [number, number] {
   if (DWELLING === 'Landed Property') {
     DWELLING = 'Landed Properties';
   }
