@@ -42,9 +42,9 @@ export default async function handler(req: NextRequest) {
       throw new UserError('Missing request data')
     }
 
-    const { prompt: prompt } = requestData
+    const { prompt: requestBody } = requestData
 
-    if (!prompt) {
+    if (!requestBody) {
       throw new UserError('Missing request data')
     }
     
