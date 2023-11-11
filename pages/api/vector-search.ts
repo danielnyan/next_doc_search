@@ -48,7 +48,7 @@ export default async function handler(req: NextRequest) {
       throw new UserError('Missing request data')
     }
     
-    let {query: query, humanResponse: humanResponse} = JSON.parse(prompt);
+    let {query: query, humanResponse: humanResponse} = JSON.parse(requestBody);
     
     if (!query) {
       throw new UserError('Missing query in request data')
