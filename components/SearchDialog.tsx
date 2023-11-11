@@ -50,7 +50,10 @@ export function SearchDialog() {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    let comp = complete(query, humanResponse)
+    let comp = complete(JSON.stringify({
+      query : query, 
+      humanResponse : humanResponse
+    }))
     let log_thing = ''
     comp.then((res) => {
       let logging = JSON.stringify(

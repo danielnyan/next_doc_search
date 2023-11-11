@@ -42,10 +42,20 @@ export default async function handler(req: NextRequest) {
       throw new UserError('Missing request data')
     }
 
-    const { prompt: query } = requestData
+    const { prompt: prompt } = requestData
 
+    if (!prompt) {
+      throw new UserError('Missing request data')
+    }
+    
+    let {query: query, humanResponse: humanResponse} = JSON.parse(prompt);
+    
     if (!query) {
       throw new UserError('Missing query in request data')
+    }
+    
+    if (!humanResponse) {
+      humanResponse = "";
     }
 
     let timestamp = new Date().valueOf()
@@ -63,7 +73,8 @@ export default async function handler(req: NextRequest) {
       await supabaseClient.from("queries").insert({
         timestamp: timestamp, 
         query: query, 
-        error:`Flagged content: ${JSON.stringify(results.categories)}`
+        error:`Flagged content: ${JSON.stringify(results.categories)}`,
+        humanResponse: humanResponse
       })
       throw new UserError('Flagged content', {
         flagged: true,
@@ -78,8 +89,12 @@ export default async function handler(req: NextRequest) {
     })
 
     if (embeddingResponse.status !== 200) {
-      await supabaseClient.from("queries").insert({timestamp: timestamp, query: query, 
-                                                   error:`Failed to create embedding: ${JSON.stringify(embeddingResponse)}`})
+      await supabaseClient.from("queries").insert({
+        timestamp: timestamp, 
+        query: query, 
+        error:`Failed to create embedding: ${JSON.stringify(embeddingResponse)}`, 
+        humanResponse: humanResponse
+      })
       throw new ApplicationError('Failed to create embedding for question', embeddingResponse)
     }
 
@@ -98,7 +113,10 @@ export default async function handler(req: NextRequest) {
     )
 
     if (matchError) {
-      await supabaseClient.from("queries").insert({timestamp: timestamp, query: query, error:`Match error: ${JSON.stringify(matchError)}`})
+      await supabaseClient.from("queries").insert({timestamp: timestamp, 
+      query: query, 
+      error:`Match error: ${JSON.stringify(matchError)}`, 
+      humanResponse: humanResponse})
       throw new ApplicationError('Failed to match page sections', matchError)
     }
 
@@ -180,7 +198,8 @@ export default async function handler(req: NextRequest) {
       query: query, 
       response:output_message,
       context: prompt,
-      remarks: "Control response: " + control_output_message + "\n Request data" + requestData
+      humanResponse: humanResponse
+      remarks: "Control response: " + control_output_message
     })
 
     return new Response(
