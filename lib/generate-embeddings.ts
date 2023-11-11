@@ -138,7 +138,7 @@ function processMdxForSearch(content: string): ProcessedMdx {
   // Remove all MDX elements from markdown
   const mdTree = filter(
     mdxTree,
-    (node) =>
+    (node: { type: string }) =>
       ![
         'mdxjsEsm',
         'mdxJsxFlowElement',
@@ -296,7 +296,7 @@ async function generateEmbeddings() {
 
   const embeddingSources: EmbeddingSource[] = [
     ...(await walk('pages'))
-      .filter(({ path }) => /\.mdx?$/.test(path))
+      .filter(({ path }) => !path.includes('/raw docs/') &&  /\.mdx?$/.test(path))
       .filter(({ path }) => !ignoredFiles.includes(path))
       .map((entry) => new MarkdownEmbeddingSource('guide', entry.path)),
   ]
@@ -322,22 +322,17 @@ async function generateEmbeddings() {
         .filter('path', 'eq', path)
         .limit(1)
         .maybeSingle()
-      console.log(path)
+        
       if (fetchPageError) {
         console.log("what is up?")
         throw fetchPageError
       }
 
-      type Singular<T> = T extends any[] ? unknown : T
-
-      // We use checksum to determine if this page & its sections need to be regenerated
-      if (!shouldRefresh && existingPage?.checksum === checksum) {
-        const existingParentPage = existingPage?.parentPage as Singular<
-          typeof existingPage.parentPage
-        >
+      if (!shouldRefresh && existingPage !== null && existingPage.checksum === checksum) {
+        const existingParentPage = existingPage.parentPage?.length === 1 ? existingPage.parentPage[0] : undefined;
 
         // If parent page changed, update it
-        if ((existingParentPage as { path: string })?.path !== parentPath) {
+        if (existingParentPage?.path !== parentPath) {
           console.log(`[${path}] Parent page has changed. Updating to '${parentPath}'...`)
           const { error: fetchParentPageError, data: parentPage } = await supabaseClient
             .from('nods_page')
