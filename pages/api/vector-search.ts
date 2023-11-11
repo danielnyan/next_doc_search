@@ -198,7 +198,7 @@ export default async function handler(req: NextRequest) {
       query: query, 
       response:output_message,
       context: prompt,
-      humanResponse: humanResponse
+      humanResponse: humanResponse,
       remarks: "Control response: " + control_output_message
     })
 
