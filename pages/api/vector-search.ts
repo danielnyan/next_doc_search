@@ -180,7 +180,7 @@ export default async function handler(req: NextRequest) {
       query: query, 
       response:output_message,
       context: prompt,
-      remarks: "Control response: " + control_output_message
+      remarks: "Control response: " + control_output_message + "\n Request data" + requestData
     })
 
     return new Response(

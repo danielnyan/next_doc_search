@@ -21,6 +21,7 @@ import { MemoizedReactMarkdown } from '@/components/markdown'
 export function SearchDialog() {
   const [open, setOpen] = React.useState(false)
   const [query, setQuery] = React.useState<string>('')
+  const [humanResponse, setHumanResponse] = React.useState<string>('')
 
   const { complete, completion, isLoading, error } = useCompletion({
     api: '/api/vector-search',
@@ -49,7 +50,7 @@ export function SearchDialog() {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    let comp = complete(query)
+    let comp = complete(query, humanResponse)
     let log_thing = ''
     comp.then((res) => {
       let logging = JSON.stringify(
@@ -183,6 +184,17 @@ export function SearchDialog() {
                   }`}
                 />
               </div>
+              
+              <div className="relative">
+                <Input
+                  placeholder="(For Official Use) Enter the human response here. Do not enter Restricted or Sensitive info."
+                  name="humanresponse"
+                  value={humanResponse}
+                  onChange={(e) => setHumanResponse(e.target.value)}
+                  className="col-span-3"
+                />
+              </div>
+              
               <DialogFooter>
                 <Button type="submit" className="bg-red-500">
                   Ask
