@@ -178,13 +178,6 @@ export default async function handler(req: NextRequest) {
       `}
       Answer as markdown (embed links if it is mentioned in the Context sections) :
     `
-
-    const control_response_test = await await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
-      messages:[ {"role": "system", "content": "Answer this question in markdown"},{"role": "user", "content": sanitizedQuery}]
-    })
-    const control_data_test = await control_response_test.json()
-    const control_output_message = control_data_test.choices[0]["message"]["content"]
     
     const response_test = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
@@ -198,8 +191,7 @@ export default async function handler(req: NextRequest) {
       query: query, 
       response:output_message,
       context: prompt,
-      humanResponse: humanResponse,
-      remarks: "Control response: " + control_output_message
+      humanResponse: humanResponse
     })
 
     return new Response(
