@@ -34,6 +34,7 @@ create table "public"."queries" (
     "humanResponse" text null,
     constraint queries_pkey primary key ("timestamp")
   ) tablespace pg_default;
+alter table "public"."queries" enable row level security;
 
 -- Create embedding similarity search functions
 create or replace function match_page_sections(embedding vector(1536), match_threshold float, match_count int, min_content_length int)
