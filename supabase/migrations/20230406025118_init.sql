@@ -24,6 +24,17 @@ create table "public"."nods_page_section" (
 );
 alter table "public"."nods_page_section" enable row level security;
 
+create table "public"."queries" (
+    query text null,
+    response text null,
+    error text null,
+    context text null,
+    remarks text null,
+    timestamp bigint not null,
+    "humanResponse" text null,
+    constraint queries_pkey primary key ("timestamp")
+  ) tablespace pg_default;
+
 -- Create embedding similarity search functions
 create or replace function match_page_sections(embedding vector(1536), match_threshold float, match_count int, min_content_length int)
 returns table (id bigint, page_id bigint, slug text, heading text, content text, similarity float)
