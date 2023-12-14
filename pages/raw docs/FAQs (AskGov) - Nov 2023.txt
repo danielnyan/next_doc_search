@@ -1,0 +1,116 @@
+S/N	Topic	Question	AskGov Response	
+1	Electricity Generation Licence	Which licence should I apply for if I wish to generate electricity?	"You will need to apply for a Generation Licence or Wholesaler Licence depending on the nameplate capacity of each of your generating units. 
+
+? For generating units with a name-place capacity of below 1MW, you are exempted from holding an electricity licence. 
+
+? For generating units with a name-place capacity of 1 MW or more but less than 10MW:   
+    (i) if the generating unit is connected to the power grid, you would be required to apply for the Wholesaler Licence. 
+    (ii) if the generating unit is not connected to the power grid, you are exempted from holding an electricity licence. 
+
+? For generating units with a name-place capacity of  10 MW or more, you would be required to apply for the Generation Licence regardless of whether the generating unit is connected to the power grid. 
+
+The processing time for Wholesaler Licence typically takes up to 6 to 8 weeks after the receipt of all supporting documents and replies to EMA?s queries. 
+
+For Generation Licence, the process can take up to 4 to 6 months (depending on the complexity of the project) after the receipt of all supporting documents and replies to EMA?s queries."	
+2	Electricity Generation Licence	What is the annual licence fee for the Wholesaler Licence?	"The current annual licence fee for the Wholesaler Licence is $100. For the initial licence fee, it will be pro-rated based on the number of days remaining in the Financial Year. Subsequently, licensees will be required to pay the annual fee on or before 30 Apr every year.
+
+Do note that the fee is subject to review on an annual basis. Please contact EMA for the latest information. "	
+3	Electricity Generation Licence	What is the annual licence fee for the Generation licence?	"For Generation Licensees with a licensed generation capacity of 10MW or more but less than 400MW, the annual licence fee consists of:
+a) A tiered fixed component which is based on the generation capacity in MW set out in Schedule A of the Generation Licence as of 1 January of the year; and
+b) A variable component of which is based on the electricity generated in GWh for the preceding calendar year.
+
+For Generation Licensees with a licensed generation capacity of 400MW or more, the annual licence fee consists of:
+a) A fixed component which is based on the generation capacity in MW set out in Schedule A of the Generation Licence as of 1 January of the year; and
+b) A variable component which is based on the electricity generated in GWh for the preceding calendar year.
+
+Do note that the fee is subject to review on an annual basis. Please contact EMA for the latest information. "	
+4	Electricity Generation Licence	I intend to outsource the operation of my generating unit to a third party. Who should apply for the Electricity Generation Licence?	The owner of the generating unit should hold the relevant electricity licence.	
+5	Electricity Generation Licence	Can I apply one Electricity Generation Licence for a group of companies?	"Licences granted do not extend to any other third party, including subsidiaries or related companies."	
+6	Electricity Generation Licence	Who can I approach for issues relating to GoBusiness?	"For technical issues relating to GoBusiness (formerly known as LicenceOne), you may contact the administrator at 6774 1430 or email  licences-helpdesk@crimsonlogic.com.sg. 
+
+The helpdesk operating hours is from Monday to Friday, 8.00am to 8.00pm, and on Saturdays, 8.00am to 2.00pm (excluding public holidays)."	
+7	Electricity Generation Licence	What are the differences between embedded and standalone generators?	"A standalone generator primarily generates electricity for the purpose of selling into the wholesale electricity market. In contrast, an Embedded Generator (EG) generates and supplies electricity primarily for internal use. 
+
+There are conditions which have to be met in order to be classified as an EG. Refer [here](https://form.gov.sg/63e218eb13cac10012d15ab3) for the details."	
+8	Retailer Licence	Which licence should I apply for if I wish to sell electricity to contestable consumers?	"An [Electricity Retailer Licence](https://www.ema.gov.sg/regulations-licences/licences/industry-licences) is required before a company can sell electricity to contestable consumers. More information on becoming an electricity retailer can be found under related links on the same webpage.
+
+To apply, please visit the [GoBusiness Portal](https://licence1.business.gov.sg/feportal/web/frontier/home). No application fee is required.
+
+The processing time for the Electricity Retailer Licence typically takes up to 6 to 8 weeks after the receipt of all supporting documents and replies to EMA?s queries. "	
+9	Retailer Licence	What is the annual licence fee for the Electricity Retailer licence?	"For Electricity Retailers, the annual licence fee consists of:
+a)	A fixed component; and
+b)	A variable component which is based on the electricity sales in GWh for the preceding calendar year.
+
+Do note that the fee is subject to review on an annual basis. Please contact EMA for more information."	
+10	Retailer Licence	How is the name-plate capacity of a solar PV system defined for licensing thresholds?	"The name-plate capacity of a solar PV system is determined based on either the solar PV system?s total installed nameplate capacity or the aggregate alternating current (AC) capacity of the inverters at the point of connection to the grid, whichever is lower."	
+11	Retailer Licence	Is an Electricity Retailer Licence required if I wish to provide Electric Vehicle (EV) charging services via an EV charging station to users?	"The provision and sale of EV charging services does not constitute electricity retailing, and hence does not require an Electricity Retailer Licence.
+
+This is regardless of whether the supply of electricity is through the building owner?s account or through the EV charging operator?s own separate electricity account."	
+12	Retailer Licence	Who can I approach for issues relating to GoBusiness?	"For technical issues relating to GoBusiness (formerly known as LicenceOne), you may contact the administrator at 6774 1430 or email  licences-helpdesk@crimsonlogic.com.sg 
+
+The helpdesk operating hours is from Monday to Friday, 8.00am to 8.00pm, and on Saturdays, 8.00am to 2.00pm (excluding public holidays)."	
+13	Retailer Licence	Which licence should I apply for if I wish to sell natural gas to consumers?	"You will need a Gas Retailer Licence to sell or offer to sell natural gas to a consumer who is connected to the natural gas distribution network. 
+
+A Gas Retailer Licence will not be required for selling natural gas to a consumer connected to the natural gas transmission network. However, you will need to either engage a Gas Shipper Licensee, or apply for a Gas Shipper Licence, to arrange with the Gas Transporter to convey natural gas to your customer.
+
+The processing time for Gas Retailer and Gas Shipper Licences typically takes up to 6 to 8 weeks after the receipt of all supporting documents and replies to EMA?s queries. "	
+14	Retailer Licence	Who can I approach for issues relating to GoBusiness?	"For technical issues relating to GoBusiness (formerly known as LicenceOne), you may contact the administrator at 6774 1430 or email  licences-helpdesk@crimsonlogic.com.sg. 
+
+The helpdesk operating hours is from Monday to Friday, 8.00am to 8.00pm, and on Saturdays, 8.00am to 2.00pm (excluding public holidays)."	
+15	Electricity & Gas Tariffs	What is electricity tariff?	"The [electricity tariff](https://www.ema.gov.sg/Residential_Electricity_Tariffs.aspx) is the price at which consumers buy electricity from SP Group. It is reviewed every quarter, and is regulated by EMA to reflect the actual cost of electricity.
+
+For more information on the latest tariff breakdown for the different tension levels, visit [SP Group](https://www.spgroup.com.sg/our-services/utilities/tariff-information) for the information.
+
+With Open Electricity Market (OEM), consumers who have switched to buying electricity from a retailer of their choice can enjoy discounts off the regulated tariff. Visit the [OEM website](https://www.openelectricitymarket.sg/home) for more information on your electricity purchase options."	
+16	Electricity & Gas Tariffs	How is electricity tariff determined?	"There are two key components of the electricity tariff - fuel cost and non-fuel cost. 
+
+The fuel cost component for each quarter is calculated using the average of daily natural gas prices in the first two-and-a-half month period in the preceding quarter.
+
+The non-fuel cost component reflects the cost of generating and delivering electricity to homes. It comprises mainly the grid charge, and the capital and operating costs of generation companies.
+
+There is a time lag in the gas price reflected in the electricity tariff because changes in gas prices in the current quarter will only be taken into account in the next quarter's tariff. This means that any increase or decrease in gas prices in the current quarter will only be reflected in the next quarter's tariff.
+
+Refer [here](www.ema.gov.sg/Residential_Electricity_Tariffs.aspx) for more information."	
+17	Electricity & Gas Tariffs	What fuel is used to generate electricity in Singapore?	"Natural gas is used to produce about 95% of Singapore's electricity, with the remainder generated from other sources such as diesel, waste incineration, coal and biomass.
+
+Please visit [here](https://www.ema.gov.sg/Piped_Natural_Gas_and_Liquefied_Natural_Gas.aspx) for more information."	
+18	Electricity & Gas Tariffs	How am I billed for my electricity consumption?	"Electricity meters are read bi-monthly by [SP Group](https://www.spgroup.com.sg/home). For months when your meters are not read, your electricity usage will be estimated based on past consumption. Any over- or under- estimation of the readings will be adjusted in subsequent bills when the actual meter reading is taken. 
+
+If you wish to submit your meter readings, you can do so via the following methods: 
+i. SP Services website ([SP Utilities Portal] (https://services.spservices.sg/#/login))
+ii. SP Services' smartphone app (SP Utilities Mobile App)
+
+Please visit the FAQs at [SP Group website](https://www.spgroup.com.sg/faq) to learn more.
+
+Contact SP Group by submitting an online inquiry form at https://www.spgroup.com.sg/contact-us if you need assistance. If you are buying electricity from a retailer, approach your retailer directly for assistance. 
+
+To provide feedback on your retailer or SP Group, write in to us via our [feedback form](https://form.gov.sg/#!/5d8c89a2ce0ed40012a91907)."	
+19	Electricity & Gas Tariffs	Are electricity prices in Singapore subsidised?	"In Singapore, the price of electricity is not subsidised.  This is to price energy correctly so that consumers are incentivised to use electricity efficiently and avoid wasteful consumption.
+
+The Government recognises that there are households which may face difficulties coping with the rising cost of utilities, and is ready to help them. In this regard, the Government assists HDB households with their utilities bills payment through the Utilities-Save (U-Save) scheme, with higher amounts of rebates going to lower-income households."	
+20	Electricity & Gas Tariffs	What is the national average monthly household electricity and/or gas consumption?	The national average monthly electricity and/or gas consumption for the various household types can be found on [SP Group website] (https://www.spgroup.com.sg/sp-services/understanding-the-tariff). 	
+21	Electricity & Gas Tariffs	How is town gas tariff calculated?	"City Energy reviews the [town gas tariff] (https://www.cityenergy.com.sg/gas-tariffs) based on guidelines set by EMA.
+
+The town gas tariff consists of fuel costs and non-fuel cost components. The fuel cost component for each quarter is calculated by taking the average of daily HSFO and naphtha prices in the first two-and-a-half month in the preceding quarter. The non-fuel component consists of City Gas? costs as a town gas producer."	
+22	Market Development & Systems Charge	What is the Market Development and Systems Charge (MDSC)?	"The Energy Market Authority continually seeks to develop the electricity market and introduce new initiatives to bring benefits to consumers such as the Open Electricity Market and the Electricity Futures Market. 
+
+The Market Development and Systems Charge (MDSC), which forms part of the Market Support Service charges, is intended to support the development and implementation of such initiatives.  
+
+You may refer to the [OEM website](https://www.openelectricitymarket.sg/home) for the current MDSC rates. 
+"	
+23	Market Development & Systems Charge	How often is the MDSC reviewed?	The MDSC is reviewed from time to time to support market development initiatives. The MDSC was recently reviewed to sustain the rollout of existing and new market development initiatives to benefit consumers.	
+24	Market Development & Systems Charge	How will MDSC-funded initiatives benefit consumers?	"The Market Development and Systems Charge (MDSC) will support a range of market development initiatives, such as the Electricity Futures Market and the Open Electricity Market. These initiatives will benefit consumers by bringing about competitive pricing and more choices.
+
+For instance, the [Open Electricity Market](http://www.openelectricitymarket.sg) allows consumers to buy electricity from a retailer of their choice, at a price plan that best meets their needs. Empowering consumers with this choice and flexibility in their electricity purchases have incentivised retailers to provide more competitive pricing and innovative offers. There are retailers who offer various types of price plans ranging from green energy options to those with tie-ups with other service providers such as telecommunications companies, insurance companies and banks.
+
+The introduction of the Electricity Futures Market has facilitated the entry of several independent retailers and further injected competition in the retail electricity market to the benefit of consumers."	
+25	Market Development & Systems Charge	"If I am buying electricity from SP Group at the regulated electricity tariff rate (i.e. non-contestable consumer), how will the MDSC be reflected in my electricity bill? "	"The MDSC is part of the existing Market Support Services fee under the regulated tariff, and constitutes about less than 2% of the electricity bill for consumers."	
+26	Market Development & Systems Charge	"If I am buying electricity from an electricity retailer (i.e. Contestable Consumer), how will the MDSC be reflected in my electricity bill? "	"For Contestable Consumers, the MDSC may be absorbed by the electricity retailer depending on the contract terms. You may wish to contact your electricity retailer for more details."	
+27	Market Development & Systems Charge	Do consumers pay the same amount of MDSC regardless of the amount of their electricity consumption? 	The MDSC is a usage-based charge applied to the amount of electricity consumed.	
+28	"Electricity Generation Licence
+
+Retailer Licence
+
+"	Where can I get a list of Electricity and Gas licensees in Singapore?	"EMA issues licences to companies involved in the generation, retail, trading (in the wholesale market), import and transmission of electricity. EMA also licences the Market Company and the Market Support Services Licensee. Refer [here](https://www.ema.gov.sg/regulations-licences/licences/industry-licences) for the list of Electricity Licensees.
+
+EMA issues licences to companies involved in the transport, import, shipping and retail of gas. This also includes operators of the LNG terminal and onshore receiving facilities for piped natural gas. Refer [here](https://www.ema.gov.sg/regulations-licences/licences/industry-licences) for the list of Gas Licensees."	
